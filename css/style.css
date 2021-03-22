@@ -3,22 +3,18 @@ div[id*='ytsubscribe'] {
   top: 85%; left: 85%;
 }
 
-/* Have a Spotify Themed Background */
 body{
     background-image: url("../img/spotify.jpg");
 }
 
-/* Make Spotify Songs Look More Round */
 iframe {
   border-radius: 30px;
 }
 
-/* Make the Spotify Results Fall Into the Same Row */
 .col {
   display: inline-block !important;
 }
 
-/* Position Results Below Search Bar */
 #song-list {
   position: absolute;
   top: 20%; left: 25%;
