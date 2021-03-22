@@ -24,6 +24,8 @@ $(document).ready(function()
     if(accessToken == null || accessToken == "" || accessToken == undefined)
       window.location.replace(redirect);
 
+
+    /*
     $( "#search_button" ).click(function()
     {
       let raw_search_query = $('#search-text').val();
@@ -56,4 +58,5 @@ $(document).ready(function()
         }
       });
     });
+    */
   });
