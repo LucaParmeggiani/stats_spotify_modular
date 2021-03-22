@@ -8,19 +8,19 @@ $( document ).ready(function()
       let split_str = window.location.href.length > 0 ? window.location.href.split('#') : [];
       sURLVariables = split_str != undefined && split_str.length > 1 && split_str[1].length > 0 ? split_str[1].split('&') : [];
       
-      /*
+      
       for (i = 0; i < sURLVariables.length; i++)
       {
         sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] === sParam)
           return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      }*/
-
+      }
+/*
       sURLVariables.forEach(urlv => {
         sParameterName = urlv.split('=');
         if(sParameterName[0] === sParam)
           return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      });
+      });*/
   };
 
     // Get Access Token
