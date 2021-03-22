@@ -19,6 +19,7 @@ iframe {
   position: absolute;
   top: 20%; left: 25%;
 }
+
 .buscar-caja {
   position: absolute;
   top: 10%; left: 50%;
@@ -27,15 +28,18 @@ iframe {
   border-radius: 40px;
   padding: 10px;
 }
+
 .buscar-caja:hover > .buscar-txt
 {
   width: 240px;
   padding: 0 6px;
 }
+
 .buscar-caja:hover > .buscar-btn {
   background: white;
   color: black;
 }
+
 .buscar-btn {
 
   float: right;
@@ -50,10 +54,12 @@ iframe {
   color: #1DB954;
   cursor: pointer;
 }
+
 .buscar-btn > i
 {
   font-size: 18px;
 }
+
 .buscar-txt {
   border: none;
   background: none;
@@ -67,6 +73,7 @@ iframe {
   width: 0px;
   font-weight: bold;
 }
+
 .btn-primary{
     background: #fff;
     color: #CB356B;

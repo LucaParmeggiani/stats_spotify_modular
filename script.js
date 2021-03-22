@@ -15,26 +15,17 @@ $(document).ready(function()
       }
   };
 
-    // Get Access Token
     const accessToken = getUrlParameter('access_token');
-
-    // AUTHORIZE with Spotify (if needed)
-    // *************** REPLACE THESE VALUES! *************************
     let client_id = 'f170b6656aad48da802a5287d67660f4';
-    // Use the following site to convert your regular url to the encoded version:
-    // https://www.url-encode-decode.com/
-    let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular'; // GitHub Pages URL or whatever your public url to this app is
-    // *************** END *************************
+    let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
 
     const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
-    // Don't authorize if we have an access token already
-    if(accessToken == null || accessToken == "" || accessToken == undefined){
-      window.location.replace(redirect);
-    }
 
-    // Search button has been clicked
-    $( "#search_button" ).click(function() {
-      //Get the value of the search box
+    if(accessToken == null || accessToken == "" || accessToken == undefined)
+      window.location.replace(redirect);
+
+    $( "#search_button" ).click(function()
+    {
       let raw_search_query = $('#search-text').val();
       let search_query = encodeURI(raw_search_query);
       // Make Spotify API call
@@ -42,10 +33,12 @@ $(document).ready(function()
       $.ajax({
         url: `https://api.spotify.com/v1/search?q=${search_query}&type=track`,
         type: 'GET',
-        headers: {
+        headers:
+        {
             'Authorization' : 'Bearer ' + accessToken
         },
-        success: function(data) {
+        success: function(data)
+        {
           // Load our songs from Spotify into our page
           let num_of_tracks = data.tracks.items.length;
           let count = 0;
