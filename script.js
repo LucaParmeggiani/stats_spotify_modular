@@ -23,7 +23,7 @@ $( document ).ready(function()
     const redirect = `https://accounts.spotify.com/authorize?client_id=${cli_id}&response_type=token&redirect_uri=${red_uri}`;
     
     if(accessToken == null || accessToken == "" || accessToken == undefined){
-      window.location.replace(redirect);
+      //window.location.replace(redirect);
     }
 
     // Search button has been clicked
