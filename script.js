@@ -8,22 +8,30 @@ $( document ).ready(function()
       let split_str = window.location.href.length > 0 ? window.location.href.split('#') : [];
       sURLVariables = split_str != undefined && split_str.length > 1 && split_str[1].length > 0 ? split_str[1].split('&') : [];
       
-      sURLVariables.forEach(urlv => {
-        sParameterName = urlv.split('=');
-        if(sParameterName[0] === sParam)
+      
+      for (i = 0; i < sURLVariables.length; i++)
+      {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam)
           return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      });
+      }
   };
 
+    // Get Access Token
     const accessToken = getUrlParameter('access_token');
 
-    let cli_id = 'f170b6656aad48da802a5287d67660f4';
-    let red_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+    // AUTHORIZE with Spotify (if needed)
+    // *************** REPLACE THESE VALUES! *************************
+    let client_id = 'f170b6656aad48da802a5287d67660f4';
+    // Use the following site to convert your regular url to the encoded version:
+    // https://www.url-encode-decode.com/
+    let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular'; // GitHub Pages URL or whatever your public url to this app is
+    // *************** END *************************
 
-    const redirect = `https://accounts.spotify.com/authorize?client_id=${cli_id}&response_type=token&redirect_uri=${red_uri}`;
-    
+    const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
+    // Don't authorize if we have an access token already
     if(accessToken == null || accessToken == "" || accessToken == undefined){
-      //window.location.replace(redirect);
+      window.location.replace(redirect);
     }
 
     // Search button has been clicked
