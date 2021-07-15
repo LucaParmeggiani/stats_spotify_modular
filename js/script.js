@@ -15,19 +15,22 @@ $(document).ready(function()
     }
   };
 
-    const accessToken = getUrlParameter('access_token');
-    let client_id = 'f170b6656aad48da802a5287d67660f4';
-    let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+  const accessToken = getUrlParameter('access_token');
+  let client_id = 'f170b6656aad48da802a5287d67660f4';
+  let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
 
-    const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
+  const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
 
-    if(accessToken == null || accessToken == "" || accessToken == undefined)
-      window.location.replace(redirect);
+  if(accessToken == null || accessToken == "" || accessToken == undefined)
+    window.location.replace(redirect);
 
-    $("#open-editor").click(function()
-    {
-      console.log("editor");
-    });
+  let name = "Luca";
+  $("#name").text("Welcome " + name + "!");
+
+  $("#open-editor").click(function()
+  {
+    console.log("editor");
+  });
 /*
     $( "#search_button" ).click(function()
     {
