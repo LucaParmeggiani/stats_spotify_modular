@@ -3,6 +3,7 @@ html, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*
@@ -41,20 +42,20 @@ section{
 
 .btn{
     padding: 10px;
-    margin: 0;
+    
     width: fit-content;
     border-radius: 8px;
     background: #212121;
-    box-shadow:  8px 8px 17px #1c1c1c, -8px -8px 17px #262626;
+    box-shadow:  8px 8px 10px #1c1c1c, -8px -8px 10px #262626;
 }
 
 .btn:hover{
     background: linear-gradient(145deg, #1e1e1e, #232323);
-    box-shadow:  8px 8px 17px #1c1c1c, -8px -8px 17px #262626;
+    box-shadow:  8px 8px 10px #1c1c1c, -8px -8px 10px #262626;
     cursor: pointer;
 }
 
 .btn:active{
     background: #212121;
-    box-shadow: inset 8px 8px 17px #1c1c1c, inset -8px -8px 17px #262626;
+    box-shadow: inset 8px 8px 10px #1c1c1c, inset -8px -8px 10px #262626;
 }
