@@ -16,21 +16,24 @@ header{
     width: 100%;
     background-color: #121212;
     color: #b3b3b3;
+    display: flex;
 }
 
-header .left-header{
+header #left-header{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-header .left-header p{
+header #left-header p{
     font-size: 20px;
+    padding: 10px;
 }
 
-header .left-header img{
+header #left-header img{
     height: 85px;
     width: 85px;
+    padding: 5px;
 }
 
 /*
