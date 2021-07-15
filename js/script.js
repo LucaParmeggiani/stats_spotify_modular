@@ -30,7 +30,10 @@ $(document).ready(function()
     headers:
     { 'Authorization' : 'Bearer ' + accessToken },
     success: function(data)
-    { $("#name").text("Welcome " + data + "!"); }
+    {
+      console.log(data);
+      $("#name").text("Welcome " + data + "!");
+    }
   });
 
   $("#open-editor").click(function()
