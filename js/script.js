@@ -33,8 +33,14 @@ $(document).ready(function()
     {
       let user_name = data.display_name;
       //let user_image = data.images[1];
-      console.log(data.images.url);
-      console.log(data.amages[1]);
+      console.log(data);
+      try {
+        console.log(data.images[1]);  
+      } catch (error) {
+        console.log("sticazzi");
+        console.log(error);
+      }
+      
       $("#name").text("Welcome " + user_name + "!");
       //$("#icon").attr("src", user_image);
     }
