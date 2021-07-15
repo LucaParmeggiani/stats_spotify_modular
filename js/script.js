@@ -24,7 +24,10 @@ $(document).ready(function()
     if(accessToken == null || accessToken == "" || accessToken == undefined)
       window.location.replace(redirect);
 
-  
+    $("#open-editor").click(function()
+    {
+      console.log("editor");
+    });
 /*
     $( "#search_button" ).click(function()
     {
