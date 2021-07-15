@@ -32,9 +32,11 @@ $(document).ready(function()
     success: function(data)
     {
       let user_name = data.display_name;
-      let user_image = data.images[1];
+      //let user_image = data.images[1];
+      console.log(data.images.url);
+      console.log(data.amages[1]);
       $("#name").text("Welcome " + user_name + "!");
-      $("#icon").attr("src", user_image);
+      //$("#icon").attr("src", user_image);
     }
   });
 

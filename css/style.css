@@ -50,7 +50,7 @@ section{
 #sidebar{
     height: 100%;
     width: 15%;
-    max-width: 150px;
+    min-width: 150px;
     float: right;
 }
 
