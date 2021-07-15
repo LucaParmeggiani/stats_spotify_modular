@@ -1,18 +1,23 @@
 $(document).ready(function()
 {
-    const getUrlParameter = (sParam) => {
-      let sPageURL = window.location.search.substring(1),
-          sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split('#') : [],
-          sParameterName,
-          i;
-      let split_str = window.location.href.length > 0 ? window.location.href.split('#') : [];
-      sURLVariables = split_str != undefined && split_str.length > 1 && split_str[1].length > 0 ? split_str[1].split('&') : [];
-      for (i = 0; i < sURLVariables.length; i++)
+  let name;
+  const getUrlParameter = (sParam) => {
+    let sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split('#') : [],
+        sParameterName,
+        i;
+    let split_str = window.location.href.length > 0 ? window.location.href.split('#') : [];
+    sURLVariables = split_str != undefined && split_str.length > 1 && split_str[1].length > 0 ? split_str[1].split('&') : [];
+    for (i = 0; i < sURLVariables.length; i++)
+    {
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] === sParam)
       {
-        sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] === sParam)
-          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        name = sParameterName[1];
+        console.log(name);
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
       }
+    }
   };
 
     const accessToken = getUrlParameter('access_token');
@@ -24,8 +29,7 @@ $(document).ready(function()
     if(accessToken == null || accessToken == "" || accessToken == undefined)
       window.location.replace(redirect);
 
-
-    /*
+/*
     $( "#search_button" ).click(function()
     {
       let raw_search_query = $('#search-text').val();
@@ -58,5 +62,5 @@ $(document).ready(function()
         }
       });
     });
-    */
+*/
   });
