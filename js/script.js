@@ -28,6 +28,7 @@ $(document).ready(function()
     if(accessToken == null || accessToken == "" || accessToken == undefined)
       window.location.replace(redirect);
 
+  console.log(name);
 /*
     $( "#search_button" ).click(function()
     {
