@@ -31,9 +31,8 @@ $(document).ready(function()
     { 'Authorization' : 'Bearer ' + accessToken },
     success: function(data)
     {
-      //let name = data.;
-      console.log(data);
-      $("#name").text("Welcome " + data + "!");
+      let user = data.display_name;
+      $("#name").text("Welcome " + user + "!");
     }
   });
 
