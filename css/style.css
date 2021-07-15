@@ -16,9 +16,11 @@ header{
     width: 100%;
     background-color: #121212;
     color: #b3b3b3;
+}
+
+header .left-header{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
 }
 
