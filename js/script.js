@@ -14,7 +14,6 @@ $(document).ready(function()
       if (sParameterName[0] === sParam)
       {
         name = sParameterName[1];
-        console.log(name);
         return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
       }
     }
