@@ -40,6 +40,7 @@ $(document).ready(function()
         console.log("sticazzi");
         console.log(error);
       }
+      //cambio cose per aggiornare
       
       $("#name").text("Welcome " + user_name + "!");
       //$("#icon").attr("src", user_image);
