@@ -1,0 +1,17 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    background-color: #121212;
+}
+
+section{
+    height: calc(100% - 100px);
+    width: 100%;
+    background-color: #212121;
+}

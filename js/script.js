@@ -1,6 +1,5 @@
 $(document).ready(function()
 {
-  let name;
   const getUrlParameter = (sParam) => {
     let sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL != undefined && sPageURL.length > 0 ? sPageURL.split('#') : [],
@@ -12,10 +11,7 @@ $(document).ready(function()
     {
       sParameterName = sURLVariables[i].split('=');
       if (sParameterName[0] === sParam)
-      {
-        name = sParameterName[1];
         return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      }
     }
   };
 
@@ -28,7 +24,7 @@ $(document).ready(function()
     if(accessToken == null || accessToken == "" || accessToken == undefined)
       window.location.replace(redirect);
 
-  console.log(name);
+  
 /*
     $( "#search_button" ).click(function()
     {
