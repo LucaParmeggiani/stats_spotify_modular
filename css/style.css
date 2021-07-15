@@ -5,12 +5,21 @@ html, body{
     box-sizing: border-box;
 }
 
+/*
+// HEADER
+*/
+
 header{
+    margin: 0;
     height: 100px;
     width: 100%;
     background-color: #121212;
     color: #b3b3b3;
 }
+
+/*
+// HOME PAGE
+*/
 
 section{
     height: calc(100% - 100px);
@@ -19,20 +28,26 @@ section{
     color: #b3b3b3;
 }
 
+/*
+// GENERIC BUTTON
+*/
+
 .btn{
+    padding: 2px;
+    margin: 0;
+    width: fit-content;
     border-radius: 8px;
     background: #212121;
     box-shadow:  20px 20px 60px #1c1c1c, -20px -20px 60px #262626;
 }
 
 .btn:hover{
-    border-radius: 8px;
     background: linear-gradient(145deg, #1e1e1e, #232323);
     box-shadow:  20px 20px 60px #1c1c1c, -20px -20px 60px #262626;
+    cursor: pointer;
 }
 
 .btn:active{
-    border-radius: 8px;
     background: #212121;
     box-shadow: inset 9px 9px 17px #1c1c1c, inset -9px -9px 17px #262626;
 }
