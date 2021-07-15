@@ -28,6 +28,13 @@ section{
     color: #b3b3b3;
 }
 
+.sidebar{
+    height: 100%;
+    width: 15%;
+    max-width: 150px;
+    right: 0;
+}
+
 /*
 // GENERIC BUTTON
 */
