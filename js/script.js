@@ -24,8 +24,14 @@ $(document).ready(function()
   if(accessToken == null || accessToken == "" || accessToken == undefined)
     window.location.replace(redirect);
 
-  let name = "Luca";
-  $("#name").text("Welcome " + name + "!");
+  $.ajax({
+    url: 'https://api.spotify.com/v1/me',
+    type: 'GET',
+    headers:
+    { 'Authorization' : 'Bearer ' + accessToken },
+    success: function(data)
+    { $("#name").text("Welcome " + data + "!"); }
+  });
 
   $("#open-editor").click(function()
   {
