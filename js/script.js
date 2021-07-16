@@ -84,13 +84,15 @@ function toggleEditor(ele, isActive)
 {
   if(isActive){
     $("#statistics").css("width", "calc(100% - 250px)");
-    $("#sidebar").css("display", "block");
+    $("#sidebar").css("left", "calc(100% - 250px)");
+    $("#sidebar").css("box-shadow", "-5px 0px 15px 0px rgba(0,0,0,0.5)");
     $(ele).toggleClass("open-editor");
   }
   else
   {
     $("#statistics").css("width", "100%");
-    $("#sidebar").css("display", "none");
+    $("#sidebar").css("left", "100%");
+    $("#sidebar").css("box-shadow", "none");
     $(ele).toggleClass("open-editor");
   }
 }
