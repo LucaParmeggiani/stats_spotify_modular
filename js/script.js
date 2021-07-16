@@ -17,7 +17,10 @@ $(document).ready(function()
 
   const accessToken = getUrlParameter('access_token');
   let client_id = 'f170b6656aad48da802a5287d67660f4';
-  let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+  // https://lucaparmeggiani.github.io/stats_spotify_modular
+  //let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+  // http://localhost:5500
+  let redirect_uri = 'http%3A%2F%2Flocalhost:5500';
 
   const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
 
@@ -71,21 +74,42 @@ function setup(accessToken){
     {
       let user_name = data.display_name;
       let user_image = data.images[0].url;
-      console.log(data);
-      try {
-        console.log(data.images[0].url);
-      } catch (error) {
-        console.log("sticazzi");
-        console.log(error);
-      }
-      
       $("#name").text("Welcome " + user_name + "!");
       $("#icon").attr("src", user_image);
     }
   });
-  
-  $("#open-editor").click(function()
-  {
-    console.log("editor");
-  });
 }
+
+function toggleEditor(ele, isActive)
+{
+  if(isActive){
+    $("#statistics").css("width", "calc(100% - 250px)");
+    $("#sidebar").css("display", "block");
+    $(ele).toggleClass("open-editor");
+  }
+  else
+  {
+    $("#statistics").css("width", "100%");
+    $("#sidebar").css("display", "none");
+    $(ele).toggleClass("open-editor");
+  }
+}
+
+$("button").click(function(){
+  let isActive = false;
+  $(this).toggleClass("is-active");
+  if($(this).hasClass("open-editor"))
+    isActive = true;
+  toggleEditor($(this), isActive);
+});
+
+emptyHome();
+
+function emptyHome()
+{
+  if($("#statistics").text() == "" || $("#statistics").text() == null || $("#statistics").text() == undefined)
+    $("#statistics").append("<div id='empty'>Open the editor and start to create your page</div>");
+}
+
+// per rimuovere la scritta quando viene aggiunto un elemento alla homepage
+//$("#empty").remove();
