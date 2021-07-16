@@ -24,7 +24,7 @@ $(document).ready(function()
   if(accessToken == null || accessToken == "" || accessToken == undefined)
     window.location.replace(redirect);
 
-  setup();
+  setup(accessToken);
 });
 /*
     $( "#search_button" ).click(function()
@@ -61,7 +61,7 @@ $(document).ready(function()
     });
 */
 
-function setup(){
+function setup(accessToken){
   $.ajax({
     url: 'https://api.spotify.com/v1/me',
     type: 'GET',
