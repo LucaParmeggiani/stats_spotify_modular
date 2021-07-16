@@ -24,11 +24,6 @@ $(document).ready(function()
   if(accessToken == null || accessToken == "" || accessToken == undefined)
     window.location.replace(redirect);
 
-
-  /*
-      NON SI AGGIORNA
-  */
-
   $.ajax({
     url: 'https://api.spotify.com/v1/me',
     type: 'GET',
