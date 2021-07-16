@@ -24,32 +24,7 @@ $(document).ready(function()
   if(accessToken == null || accessToken == "" || accessToken == undefined)
     window.location.replace(redirect);
 
-  $.ajax({
-    url: 'https://api.spotify.com/v1/me',
-    type: 'GET',
-    headers:
-    { 'Authorization' : 'Bearer ' + accessToken },
-    success: function(data)
-    {
-      let user_name = data.display_name;
-      //let user_image = data.images[1];
-      console.log(data);
-      try {
-        console.log(data.images[0].url);
-      } catch (error) {
-        console.log("sticazzi");
-        console.log(error);
-      }
-      
-      $("#name").text("Welcome " + user_name + "!");
-      //$("#icon").attr("src", user_image);
-    }
-  });
-
-  $("#open-editor").click(function()
-  {
-    console.log("editor");
-  });
+  
 /*
     $( "#search_button" ).click(function()
     {
@@ -84,4 +59,31 @@ $(document).ready(function()
       });
     });
 */
-  });
+});
+
+$.ajax({
+  url: 'https://api.spotify.com/v1/me',
+  type: 'GET',
+  headers:
+  { 'Authorization' : 'Bearer ' + accessToken },
+  success: function(data)
+  {
+    let user_name = data.display_name;
+    let user_image = data.images[0].url;
+    console.log(data);
+    try {
+      console.log(data.images[0].url);
+    } catch (error) {
+      console.log("sticazzi");
+      console.log(error);
+    }
+    
+    $("#name").text("Welcome " + user_name + "!");
+    $("#icon").attr("src", user_image);
+  }
+});
+
+$("#open-editor").click(function()
+{
+  console.log("editor");
+});
