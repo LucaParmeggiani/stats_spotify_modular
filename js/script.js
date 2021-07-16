@@ -24,6 +24,11 @@ $(document).ready(function()
   if(accessToken == null || accessToken == "" || accessToken == undefined)
     window.location.replace(redirect);
 
+
+  /*
+      NON SI AGGIORNA
+  */
+
   $.ajax({
     url: 'https://api.spotify.com/v1/me',
     type: 'GET',
@@ -35,7 +40,7 @@ $(document).ready(function()
       //let user_image = data.images[1];
       console.log(data);
       try {
-        console.log(data.images[1]);  
+        console.log(data.images[0].url);
       } catch (error) {
         console.log("sticazzi");
         console.log(error);
