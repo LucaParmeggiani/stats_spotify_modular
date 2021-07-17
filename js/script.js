@@ -135,11 +135,12 @@ function modify(categoryName, element)
       if(fixedCategoryName == categoryName)
         $(category.selectors).each(function(index, division){
           $(division).each(function(index, selector){
-            var tmpDiv = $("<div id='selector'><p>" + selector + "</p></div>");
-            $(tmpDiv).append(element);
-          });
-          $("--------------").append(element);
+          var tmpDiv = $("<div id='selector'><p>&nbsp;&nbsp;&nbsp;&nbsp;" + selector + "</p></div>");
+          $(element).append(tmpDiv);
         });
+      });
+      var line = "<p>----------------</p>";
+      $(element).append(line);
     });
   }).fail(function(){
     console.error("ERRORE DA GESTIRE");
