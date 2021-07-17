@@ -113,5 +113,4 @@ function emptyHome()
     $("#statistics").append("<div id='empty'>Open the editor and start to create your page</div>");
 }
 
-// per rimuovere la scritta quando viene aggiunto un elemento alla homepage
 //$("#empty").remove();

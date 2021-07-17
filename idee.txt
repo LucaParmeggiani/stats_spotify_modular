@@ -1,0 +1,19 @@
+tipologie di schede con 9 cose selezionabili al massimo
+ogni 3 cose selezionate si ingrandisce la "card" -> 3 dimensioni: small-size, medium-size, big-size.
+Elenco delle categorie ->
+{
+    Cat. 1 -> Elenco delle cose selezionabili
+    {
+
+    }
+    Cat. 2 -> Elenco delle cose selezionabili
+    {
+
+    }
+}
+
+README.MD
+
+link del sito
+introduzione e spiegazione del sito
+elenco delle categorie e delle cose selezionabili per ogni categoria
