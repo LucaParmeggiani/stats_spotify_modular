@@ -36,6 +36,7 @@ header #left-header img{
     height: 85px;
     width: 85px;
     padding: 5px;
+    margin-left: 10px;
     border-radius: 50%;
 }
 

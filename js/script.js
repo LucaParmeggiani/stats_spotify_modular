@@ -74,8 +74,8 @@ function setup(accessToken){
     {
       let user_name = data.display_name;
       let user_image = data.images[0].url;
-      $("#name").text("Welcome " + user_name + "!");
       $("#icon").attr("src", user_image);
+      $("#name").text("Welcome " + user_name + "!");
     }
   });
 }
