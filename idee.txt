@@ -2,18 +2,48 @@ tipologie di schede con 9 cose selezionabili al massimo
 ogni 3 cose selezionate si ingrandisce la "card" -> 3 dimensioni: small-size, medium-size, big-size.
 Elenco delle categorie ->
 {
-    Cat. 1 -> Elenco delle cose selezionabili
+    top track ascoltate
     {
-
+        settimanale -> show 3 -> popup 50
+        mensile -> show 3 -> popup 50
+        semestrale -> show 3 -> popup 50
+        lifetime -> show 3 -> popup 50
+        --------------------------------------------
+        tot. minuti settimana -> show 3 -> popup 10
+        tot. minuti mensile -> show 3 -> popup 10
+        tot. minuti semestrale -> show 3 -> popup 10
+        tot. minuti lifetime -> show 3 -> popup 10
     }
-    Cat. 2 -> Elenco delle cose selezionabili
+    top artisti ascoltati
     {
-
+        settimanale -> show 3 -> popup 50
+        mensile -> show 3 -> popup 50
+        semestrale -> show 3 -> popup 50
+        lifetime -> show 3 -> popup 50
+        --------------------------------------------
+        tot. minuti settimana -> show 3 -> popup 10
+        tot. minuti mensile -> show 3 -> popup 10
+        tot. minuti semestrale -> show 3 -> popup 10
+        tot. minuti lifetime -> show 3 -> popup 10
+    }
+    top generi ascoltati
+    {
+        settimanale -> show 3
+        mensile -> show 3
+        semestrale -> show 3
+        lifetime -> show 3
+        --------------------------------------------
+        tot. minuti settimana -> show 3
+        tot. minuti mensile -> show 3
+        tot. minuti semestrale -> show 3
+        tot. minuti lifetime -> show 3
     }
 }
 
+-----------------------------------------------------------------------
 README.MD
 
 link del sito
 introduzione e spiegazione del sito
 elenco delle categorie e delle cose selezionabili per ogni categoria
+-----------------------------------------------------------------------

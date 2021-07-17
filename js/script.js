@@ -114,3 +114,40 @@ function emptyHome()
 }
 
 //$("#empty").remove();
+
+$.getJSON("categories.json", function(data){
+  $(data.categories).each(function(index, el)
+  {
+    var fixedName = el.name.replace(/\_/g, " ");
+    var tmpDiv = "<div id='category" + index + "' onclick='modify($(this).find(\"p\").text(), $(this))'><p>" + fixedName + "</p></div>";
+    $("#selectable-category").append(tmpDiv);
+  });
+}).fail(function(){
+  console.error("ERRORE DA GESTIRE");
+});
+
+function modify(categoryName, element)
+{
+  $.getJSON("categories.json", function(data){
+    $(data.categories).each(function(index, category)
+    {
+      var fixedCategoryName = category.name.replace(/\_/g, " ");
+      if(fixedCategoryName == categoryName)
+        $(category.selectors).each(function(index, division){
+          $(division).each(function(index, selector){
+            var tmpDiv = $("<div id='selector'><p>" + selector + "</p></div>");
+            $(tmpDiv).append(element);
+          });
+          $("--------------").append(element);
+        });
+    });
+  }).fail(function(){
+    console.error("ERRORE DA GESTIRE");
+  });
+
+  modifyPopup();
+}
+
+function modifyPopup(){
+
+}
