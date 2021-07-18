@@ -72,11 +72,15 @@ function setup(accessToken){
     { 'Authorization' : 'Bearer ' + accessToken },
     success: function(data)
     {
-      console.log(data);
       let user_name = data.display_name;
-      let user_image = data.images[0].url;
-      //check se lìimmagine effettivamente esiste altrimenti mettere immagine placeholder
-      $("#icon").attr("src", user_image);
+      try{
+        let user_image = data.images[0].url;
+        $("#icon").attr("src", user_image);
+      }
+      catch(e)
+      {
+        $("#icon").attr("src", "imgs/placeholder-profile.png");
+      }
       $("#name").text("Welcome " + user_name + "!");
     }
   });
@@ -125,7 +129,9 @@ $.getJSON("categories.json", function(data){
     $("#selectable-category").append(tmpDiv);
   });
 }).fail(function(){
-  console.error("ERRORE DA GESTIRE");
+  var tmpDiv = "<div id='error'>Errore di caricamento, aggiornare la pagina!</div>";
+  $("#selectable-category").append(tmpDiv);
+  $("#search").hide();
 });
 
 function modify(categoryName, element)
@@ -142,9 +148,7 @@ function modify(categoryName, element)
           $(element).append(tmpDiv);
         });
       });
-      var line = "<p>----------------</p>";
       //capire come mettere questo cazzo di separatore
-      $(element).append(line);
     });
   }).fail(function(){
     console.error("ERRORE DA GESTIRE");
@@ -156,3 +160,6 @@ function modify(categoryName, element)
 function modifyPopup(){
 
 }
+
+var searchHeight = $("#search").height() + 20;
+$("#selectable-category").css("height", "calc(100% - " + searchHeight + "px)");
