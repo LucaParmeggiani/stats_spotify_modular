@@ -116,9 +116,9 @@ function emptyHome()
 //$("#empty").remove();
 
 $.getJSON("categories.json", function(data){
-  $(data.categories).each(function(index, el)
+  $(data.categories).each(function(index, element)
   {
-    var fixedName = el.name.replace(/\_/g, " ");
+    var fixedName = element.name.replace(/\_/g, " ");
     var tmpDiv = "<div id='category" + index + "' onclick='modify($(this).find(\"p\").text(), $(this))'><p>" + fixedName + "</p></div>";
     $("#selectable-category").append(tmpDiv);
   });
