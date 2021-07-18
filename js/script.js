@@ -72,6 +72,7 @@ function setup(accessToken){
     { 'Authorization' : 'Bearer ' + accessToken },
     success: function(data)
     {
+      console.log(data);
       let user_name = data.display_name;
       let user_image = data.images[0].url;
       //check se lìimmagine effettivamente esiste altrimenti mettere immagine placeholder
