@@ -18,9 +18,9 @@ $(document).ready(function()
   const accessToken = getUrlParameter('access_token');
   let client_id = 'f170b6656aad48da802a5287d67660f4';
   // https://lucaparmeggiani.github.io/stats_spotify_modular
-  //let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+  let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
   // http://localhost:5500
-  let redirect_uri = 'http%3A%2F%2Flocalhost:5500';
+  //let redirect_uri = 'http%3A%2F%2Flocalhost:5500';
 
   const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
 
