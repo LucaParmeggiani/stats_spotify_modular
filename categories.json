@@ -2,57 +2,45 @@
     "categories" :
     [
         {
-            "name" : "top_listened_tracks",
+            "name" : "top_streamed_tracks",
             "selectors" :
             [
-                [
-                    "weekly",
-                    "monthly",
-                    "semiannualy",
-                    "lifetime"
-                ],
-                [
-                    "minute_listened_weekly",
-                    "minute_listened_monthly",
-                    "minute_listened_semiannualy",
-                    "minute_listened_lifetime"
-                ]
+                "weekly",
+                "monthly",
+                "semiannualy",
+                "lifetime",
+                "minute_listened_weekly",
+                "minute_listened_monthly",
+                "minute_listened_semiannualy",
+                "minute_listened_lifetime"
             ]
         },
         {
-            "name" : "top_listened_artists",
+            "name" : "top_streamed_artists",
             "selectors" :
             [
-                [
                     "weekly",
                     "monthly",
                     "semiannualy",
-                    "lifetime"
-                ],
-                [
+                    "lifetime",
                     "minute_listened_weekly",
                     "minute_listened_monthly",
                     "minute_listened_semiannualy",
                     "minute_listened_lifetime"
-                ]
             ]
         },
         {
             "name" : "top_listened_genres",
             "selectors" :
             [
-                [
                     "weekly",
                     "monthly",
                     "semiannualy",
-                    "lifetime"
-                ],
-                [
+                    "lifetime",
                     "minute_listened_weekly",
                     "minute_listened_monthly",
                     "minute_listened_semiannualy",
                     "minute_listened_lifetime"
-                ]
             ]
         }
     ]

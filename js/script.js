@@ -89,8 +89,8 @@ function setup(accessToken){
 function toggleEditor(ele, isActive)
 {
   if(isActive){
-    $("#statistics").css("width", "calc(100% - 250px)");
-    $("#sidebar").css("left", "calc(100% - 250px)");
+    $("#statistics").css("width", "calc(100% - 300px)");
+    $("#sidebar").css("left", "calc(100% - 300px)");
     $("#sidebar").css("box-shadow", "-5px 0px 15px 0px rgba(0,0,0,0.5)");
     $(ele).toggleClass("open-editor");
   }
@@ -125,39 +125,69 @@ $.getJSON("categories.json", function(data){
   $(data.categories).each(function(index, element)
   {
     var fixedName = element.name.replace(/\_/g, " ");
-    var tmpDiv = "<div id='category" + index + "' onclick='modify($(this).find(\"p\").text(), $(this))'><p>" + fixedName + "</p></div>";
+    var tmpDiv = "<div class='category" + index + "'><div class='select-box'>" +
+    "<p class='titleCategory' onclick='modify($(this).text(), $(this).closest(\".category" + index + "\"))'>" + fixedName + "</p>" +
+    "<div class='option-container'></div></div></div>";
     $("#selectable-category").append(tmpDiv);
   });
 }).fail(function(){
-  var tmpDiv = "<div id='error'>Errore di caricamento, aggiornare la pagina!</div>";
-  $("#selectable-category").append(tmpDiv);
-  $("#search").hide();
+  jsonErrorLoad();
 });
 
 function modify(categoryName, element)
 {
-  $.getJSON("categories.json", function(data){
-    $(data.categories).each(function(index, category)
-    {
-      //restylare il tutto "dropdown" + mettere la possibilità di richiuderlo + modifyPopup()
-      var fixedCategoryName = category.name.replace(/\_/g, " ");
-      if(fixedCategoryName == categoryName)
-        $(category.selectors).each(function(index, division){
-          $(division).each(function(index, selector){
-          var tmpDiv = $("<div id='selector'><p>&nbsp;&nbsp;&nbsp;&nbsp;" + selector + "</p></div>");
+  // GESTIRE ENTRATA MULTIPLA
+  element = $(element).find(".select-box").find(".option-container");
+  if($(categoryName + " .option-container").hasClass("active"))
+  {
+    $(".option-container").toggleClass("active");
+    $(element.children()).each(function(index, value){
+      $(value).remove();
+    });
+  }
+  else
+  {
+    $(".option-container").toggleClass("active");
+  
+    $.getJSON("categories.json", function(data){
+      $(data.categories).each(function(index, category)
+      {
+        var fixedCategoryName = category.name.replace(/\_/g, " ");
+        if(fixedCategoryName == categoryName)
+          $(category.selectors).each(function(index, selector){
+            var fixedSelector = selector.replace(/\_/g, " ");
+            var tmpDiv = "<div class='option'><p id='" + index + "'>" + fixedSelector + "</p></div>";
           $(element).append(tmpDiv);
         });
       });
-      //capire come mettere questo cazzo di separatore
+    }).fail(function(){
+      jsonLoadingError();
     });
-  }).fail(function(){
-    console.error("ERRORE DA GESTIRE");
-  });
 
-  modifyPopup();
+    var optionList = $(".option");
+    $(optionList).each(function(index, item){
+      $(item).click(function(){
+        console.log(item);
+        console.log("ciao");
+        //storage in un array tutte quelle salvate (se supera le 9 si lincia)
+        //poi si manda come paramento a modifyPopup() l'array
+      });
+    });
+  
+    modifyPopup();
+  }
 }
 
-function modifyPopup(){
+function jsonLoadingError()
+{
+  var tmpDiv = "<div class='error'><p>Loading error, try to reload the page!</p><button id='errorButton' onclick='location.reload(true);'>RELOAD</button></div>";
+  $("#selectable-category").append(tmpDiv);
+  $("#search").hide();
+  $("#selectable-category").css("height", "100%");
+}
+
+function modifyPopup()
+{
 
 }
 

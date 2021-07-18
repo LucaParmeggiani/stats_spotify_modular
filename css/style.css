@@ -6,10 +6,6 @@ html, body{
     font-family: 'Roboto', sans-serif;
 }
 
-/*
-// HEADER
-*/
-
 header{
     margin: 0;
     height: 100px;
@@ -50,10 +46,6 @@ header #right-header{
     font-weight: bold;
 }
 
-/*
-// HOME PAGE
-*/
-
 section{
     height: calc(100% - 100px);
     width: 100%;
@@ -82,15 +74,11 @@ section{
 
 #sidebar{
     height: calc(100% - 100px);
-    width: 250px;
+    width: 300px;
     position: fixed;
     left: 100%;
     transition: .35s;
 }
-
-/*
-// SELECTABLE CATEGORIES
-*/
 
 #search{
     display: flex;
@@ -103,25 +91,101 @@ section{
 #search-box{
     width: 80%;
     font-size: 18px;
+    background-color: #121212;
+    border: none;
+    padding: 4px;
+    border-radius: 6px;
+    color: #b3b3b3;
+    outline: none;
 }
 
-#error{
+.error{
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 100px);
     font-size: 25px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-#selectable-category{
-    overflow: auto;
+#errorButton{
+    background-color: #121212;
+    padding: 8px;
+    color: #b3b3b3;
+    border: none;
+    font-size: 18px;
+    border-radius: 6px;
 }
 
-/*
-// SCROLLBAR
-*/
+#selectable-category{ overflow: auto; }
+
+div[class^="category"]{
+    letter-spacing: .05em;
+    padding: 5px 5px;
+}
+
+.titleCategory
+{
+    margin: 5px;
+    position: relative;
+    transition:0.4s;
+    width: max-content;
+}
+
+.titleCategory::after{
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: inherit;
+    background: white;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.titleCategory:hover{
+    color:white;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.titleCategory:hover::after{
+    width: 100%; 
+    left: 0; 
+}
+
+.select-box{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.select-box .option-container{
+    background-color: #121212;
+    max-height: 0;
+    opacity: 0;
+    transition: all .4s;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.select-box .option, .titleCategory{
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.select-box .option:hover{ background-color: #535353; }
+
+.select-box .option-container.active{
+    max-height: 220px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.option-container .option p{ margin: 2px 0; }
 
 ::-webkit-scrollbar { width: 10px; }
   
