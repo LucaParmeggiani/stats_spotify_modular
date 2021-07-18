@@ -18,9 +18,9 @@ $(document).ready(function()
   const accessToken = getUrlParameter('access_token');
   let client_id = 'f170b6656aad48da802a5287d67660f4';
   // https://lucaparmeggiani.github.io/stats_spotify_modular
-  let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
+  //let redirect_uri = 'https%3A%2F%2Flucaparmeggiani.github.io%2Fstats_spotify_modular';
   // http://localhost:5500
-  //let redirect_uri = 'http%3A%2F%2Flocalhost:5500';
+  let redirect_uri = 'http%3A%2F%2Flocalhost:5500';
 
   const redirect = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}`;
 
@@ -74,6 +74,7 @@ function setup(accessToken){
     {
       let user_name = data.display_name;
       let user_image = data.images[0].url;
+      //check se lìimmagine effettivamente esiste altrimenti mettere immagine placeholder
       $("#icon").attr("src", user_image);
       $("#name").text("Welcome " + user_name + "!");
     }
@@ -131,6 +132,7 @@ function modify(categoryName, element)
   $.getJSON("categories.json", function(data){
     $(data.categories).each(function(index, category)
     {
+      //restylare il tutto "dropdown" + mettere la possibilità di richiuderlo + modifyPopup()
       var fixedCategoryName = category.name.replace(/\_/g, " ");
       if(fixedCategoryName == categoryName)
         $(category.selectors).each(function(index, division){
@@ -140,6 +142,7 @@ function modify(categoryName, element)
         });
       });
       var line = "<p>----------------</p>";
+      //capire come mettere questo cazzo di separatore
       $(element).append(line);
     });
   }).fail(function(){
