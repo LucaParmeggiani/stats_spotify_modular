@@ -136,18 +136,42 @@ $.getJSON("categories.json", function(data){
 
 function modify(categoryName, element)
 {
-  // GESTIRE ENTRATA MULTIPLA
-  element = $(element).find(".select-box").find(".option-container");
-  if($(categoryName + " .option-container").hasClass("active"))
-  {
-    $(".option-container").toggleClass("active");
-    $(element.children()).each(function(index, value){
-      $(value).remove();
+  // NON SO CHE CAZZO DEVO FARE GUARDARCI A MENTE SGOMBRA
+  clickedElement = $(element).find(".select-box").find(".option-container");
+  
+  $($(clickedElement).closest("#selectable-category").children()).each(function(index, categoryDiv){
+    if($(categoryDiv).find(".option-container").hasClass("active"))
+    {
+      removeInside($(categoryDiv).find(".option-container"));
+      if(!($(categoryDiv).find(".option-container").is(clickedElement)))
+      {
+        addOptions(clickedElement, categoryName);
+      }
+    }
+    else
+      addOptions(clickedElement, categoryName);
+
+    var optionList = $(".option");
+    $(optionList).each(function(index, item){
+      $(item).click(function(){
+        console.log(item);
+        console.log("ciao");
+        //storage in un array tutte quelle salvate (se supera le 9 si lincia)
+        //poi si manda come paramento a modifyPopup() l'array
+      });
     });
+  
+    modifyPopup();
+  });
+
+  /*
+  if($(element).find(".option-container").hasClass("active"))
+  {
+    removeInside(element);
   }
   else
   {
-    $(".option-container").toggleClass("active");
+    $(element.find(".option-container")).toggleClass("active");
   
     $.getJSON("categories.json", function(data){
       $(data.categories).each(function(index, category)
@@ -157,7 +181,7 @@ function modify(categoryName, element)
           $(category.selectors).each(function(index, selector){
             var fixedSelector = selector.replace(/\_/g, " ");
             var tmpDiv = "<div class='option'><p id='" + index + "'>" + fixedSelector + "</p></div>";
-          $(element).append(tmpDiv);
+          $(elementContainer).append(tmpDiv);
         });
       });
     }).fail(function(){
@@ -175,7 +199,35 @@ function modify(categoryName, element)
     });
   
     modifyPopup();
-  }
+  }*/
+}
+
+function addOptions(element, categoryName)
+{
+  element.toggleClass("active");
+
+  $.getJSON("categories.json", function(data){
+    $(data.categories).each(function(index, category)
+    {
+      var fixedCategoryName = category.name.replace(/\_/g, " ");
+      if(fixedCategoryName == categoryName)
+        $(category.selectors).each(function(index, selector){
+          var fixedSelector = selector.replace(/\_/g, " ");
+          var tmpDiv = "<div class='option'><p id='" + index + "'>" + fixedSelector + "</p></div>";
+        $(element).append(tmpDiv);
+      });
+    });
+  }).fail(function(){
+    jsonLoadingError();
+  });
+}
+
+function removeInside(element)
+{
+  $(element.find(".option-container")).toggleClass("active");
+  $($(element).find(".select-box").find(".option-container").children()).each(function(index, value){
+    $(value).remove();
+  });
 }
 
 function jsonLoadingError()
@@ -191,5 +243,5 @@ function modifyPopup()
 
 }
 
-var searchHeight = $("#search").height() + 20;
-$("#selectable-category").css("height", "calc(100% - " + searchHeight + "px)");
+var calchHeight = $("#search").height() + 20;
+$("#selectable-category").css("height", "calc(100% - " + calchHeight + "px)");
